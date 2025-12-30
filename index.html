@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>~ Good Morning Nala ~</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@400;600&family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <title>Hi Nala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bangers&family=Coming+Soon&family=Fredoka:wght@400;600&family=Indie+Flower&family=Patrick+Hand&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         :root {
-            /* 💜 K-Pop 應援色盤 */
-            --primary: #9b59b6;       /* 基底紫 */
-            --primary-dark: #8e44ad;  /* 深紫 */
-            --neon-pink: #ff79c6;     /* 霓虹粉 */
-            --neon-blue: #8be9fd;     /* 電光藍 */
-            --bg-color: #f8f0fc;      /* 淡紫背景 */
+            /* 💜 K-Pop 色盤 */
+            --primary: #9b59b6;
+            --primary-dark: #8e44ad;
+            --neon-pink: #ff79c6;
+            --neon-blue: #8be9fd;
+            --bg-color: #f8f0fc;
             --card-bg: rgba(255, 255, 255, 0.95);
             --text-color: #2c3e50;
             --gold: #f1c40f;
             
-            --font-hand: 'Indie Flower', cursive;
-            --font-bold: 'Fredoka', sans-serif;
+            /* 可變動的主字型變數 */
+            --font-hand: 'Indie Flower', cursive; 
+            /* 標題固定用 Bangers */
+            --font-title: 'Bangers', cursive;
         }
 
         body {
-            font-family: var(--font-hand);
+            font-family: var(--font-hand); /* 使用變數 */
             color: var(--text-color);
             margin: 0;
             padding: 20px;
@@ -34,30 +36,20 @@
             min-height: 100vh;
             padding-bottom: calc(20px + env(safe-area-inset-bottom));
 
-            /* ==========================================================
-               🎨 【背景設定區 (Background Config)】
-               ========================================================== */
-            
-            /* 1. 背景底色 (淡紫色) */
+            /* === 背景設定區 === */
             background-color: var(--bg-color);
-
-            /* 2. 背景圖片 (若要用自己的圖，請改檔名，例如 'idol.jpg') */
-            /* 預設: 幾何圖形裝飾 */
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255, 121, 198, 0.15) 0%, transparent 20%);
-            
-            /* 若您上傳了照片，請把下面這行取消註解 (刪除前面的 //) */
+            /* 若要用自己的圖，請取消下行註解並改檔名 */
             /* background-image: url('bg.png'); */
-
-            /* 3. 圖片顯示設定 */
-            background-size: cover;       /* 填滿畫面 */
-            background-position: center;  /* 居中 */
+            
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* 固定不捲動 */
+            background-attachment: fixed;
         }
 
-        /* 標題與 Header */
         header { 
             width: 100%; max-width: 500px;
             display: flex; justify-content: space-between; align-items: center;
@@ -65,7 +57,7 @@
         }
 
         h1 {
-            font-family: 'Bangers', cursive; /* 漫畫英雄字體 */
+            font-family: var(--font-title);
             font-size: 2.5rem;
             color: var(--primary-dark);
             text-shadow: 2px 2px 0px var(--neon-pink);
@@ -77,27 +69,25 @@
             background: white;
             padding: 5px 15px;
             border-radius: 20px;
-            font-family: var(--font-bold);
+            font-family: 'Fredoka', sans-serif; /* 時鐘保持易讀 */
             font-size: 1.2rem;
             color: var(--primary);
             border: 2px solid var(--neon-pink);
             box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
         }
 
-        /* 總星星顯示 (右上角) */
         .total-stars-display {
             background: white;
             padding: 5px 12px;
             border-radius: 15px;
             display: flex; align-items: center; gap: 5px;
             border: 2px solid var(--gold);
-            font-family: var(--font-bold);
+            font-family: 'Fredoka', sans-serif;
             color: #f39c12;
             font-size: 1.1rem;
             margin-top: 5px;
         }
 
-        /* ✨ 任務卡片 */
         .card {
             background: var(--card-bg);
             width: 100%; max-width: 500px;
@@ -122,7 +112,6 @@
             transition: all 0.2s;
         }
         
-        /* 週二特殊任務樣式 */
         .task-item.special {
             background: #e8f4fd;
             border-radius: 10px;
@@ -144,11 +133,10 @@
         .task-item.checked .checkbox { background: var(--primary); }
         .task-item.checked .checkbox::after { content: '✔'; color: white; font-size: 1.2rem; }
 
-        /* 🔥 Ready 按鈕 */
         .btn-ready {
             background: linear-gradient(135deg, var(--primary), var(--neon-pink));
             color: white;
-            font-family: 'Bangers', cursive;
+            font-family: var(--font-title);
             font-size: 2rem;
             border: none;
             padding: 15px 0;
@@ -162,7 +150,7 @@
         }
         .btn-ready:active { transform: translateY(6px); box-shadow: 0 0 0; }
 
-        /* 📊 每週統計卡片 */
+        /* 週統計 */
         .weekly-stats {
             width: 100%; max-width: 500px;
             background: white;
@@ -173,10 +161,10 @@
             box-shadow: 4px 4px 0 rgba(139, 233, 253, 0.5);
             display: flex; justify-content: space-between; align-items: center;
         }
-        .weekly-label { font-family: var(--font-bold); color: #555; font-size: 1.1rem; }
-        .weekly-value { font-family: 'Bangers', cursive; font-size: 2rem; color: var(--primary); }
+        .weekly-label { font-weight: bold; color: #555; font-size: 1.1rem; }
+        .weekly-value { font-family: var(--font-title); font-size: 2rem; color: var(--primary); }
 
-        /* 📅 月曆樣式 */
+        /* 月曆 */
         .calendar-container {
             width: 100%; max-width: 500px;
             background: white;
@@ -185,7 +173,7 @@
             margin-top: 20px;
             border: 2px solid #ddd;
         }
-        .cal-header { text-align: center; font-family: var(--font-bold); font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-dark); }
+        .cal-header { text-align: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-dark); }
         .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
         
         .cal-day {
@@ -195,25 +183,35 @@
             background: #f9f9f9;
             border-radius: 8px;
             font-size: 0.9rem; color: #aaa;
-            position: relative;
+            font-family: 'Fredoka', sans-serif;
         }
         
-        /* 一般完成 (1-19星) */
-        .cal-day.done { 
-            background: #e1bee7; color: var(--primary-dark); 
-            border: 1px solid var(--primary); font-weight: bold; 
-        }
-        /* S級完美達成 (20星以上) */
-        .cal-day.perfect { 
-            background: var(--neon-pink); color: white; 
-            border: 1px solid #ff4081; 
-            box-shadow: 0 0 5px var(--neon-pink);
-        }
+        .cal-day.done { background: #e1bee7; color: var(--primary-dark); border: 1px solid var(--primary); font-weight: bold; }
+        .cal-day.perfect { background: var(--neon-pink); color: white; border: 1px solid #ff4081; box-shadow: 0 0 5px var(--neon-pink);}
         
         .cal-star-num { font-size: 0.7rem; margin-top: 2px; }
         .cal-day.today { border: 2px dashed var(--primary); }
 
-        /* 結果視窗 (完成後顯示) */
+        /* Footer 工具列 */
+        .footer-tools { 
+            margin-top: 30px; 
+            width: 100%; max-width: 500px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .reset-link { color: #ccc; text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
+        
+        /* 字型選單樣式 */
+        .font-selector {
+            padding: 5px 10px;
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            background: white;
+            color: var(--primary-dark);
+            font-family: var(--font-hand);
+            font-size: 1rem;
+            outline: none;
+        }
+
         .result-overlay {
             display: none;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -227,18 +225,16 @@
             width: 90%; max-width: 400px;
             animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .rank-badge { font-family: 'Bangers', cursive; font-size: 4rem; margin: 10px 0; }
+        .rank-badge { font-family: var(--font-title); font-size: 4rem; margin: 10px 0; }
         .rank-s { color: var(--gold); text-shadow: 2px 2px 0 #d35400; }
         .rank-a { color: var(--neon-pink); }
         .rank-b { color: var(--neon-blue); }
+        .rank-c { color: #aaa; }
         
         .btn-close { 
             background: #333; color: white; border: none; padding: 10px 30px; 
-            border-radius: 20px; font-size: 1.2rem; cursor: pointer; margin-top: 20px; 
+            border-radius: 20px; font-size: 1.2rem; cursor: pointer; margin-top: 20px; font-family: var(--font-hand);
         }
-
-        .footer-tools { margin-top: 30px; text-align: center; width: 100%; }
-        .reset-link { color: #ccc; text-decoration: underline; cursor: pointer; font-size: 0.9rem; }
 
         #confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99; display: none; }
 
@@ -249,7 +245,7 @@
 
     <header>
         <div>
-            <h1>Hunter Routine</h1>
+            <h1>🩷 Good Morning Nala 🩷</h1>
             <div class="total-stars-display">
                 <span>⭐</span>
                 <span id="total-stars">0</span>
@@ -286,7 +282,7 @@
     <button class="btn-ready" onclick="finishRoutine()">I'm Ready!</button>
 
     <div class="weekly-stats">
-        <span class="weekly-label">Weekly Score (本週戰績)</span>
+        <span class="weekly-label">Weekly Score</span>
         <span class="weekly-value" id="weekly-score">0 ⭐</span>
     </div>
 
@@ -296,7 +292,15 @@
     </div>
 
     <div class="footer-tools">
-        <span class="reset-link" onclick="clearData()">Reset All Data</span>
+        <select id="font-selector" class="font-selector">
+            <option value="'Indie Flower', cursive">Indie Flower (Cute)</option>
+            <option value="'Fredoka', sans-serif">Fredoka (Round)</option>
+            <option value="'Patrick Hand', cursive">Patrick Hand (Neat)</option>
+            <option value="'Architects Daughter', cursive">Architect (Sketch)</option>
+            <option value="'Coming Soon', cursive">Coming Soon (Pen)</option>
+        </select>
+
+        <span class="reset-link" onclick="clearData()">Reset Data</span>
     </div>
 
     <div class="result-overlay" id="result-overlay">
@@ -312,7 +316,6 @@
     <canvas id="confetti-canvas"></canvas>
 
     <script>
-        // DOM Elements
         const clockEl = document.getElementById('clock');
         const taskList = document.getElementById('task-list');
         const totalStarsEl = document.getElementById('total-stars');
@@ -320,36 +323,48 @@
         const calGrid = document.getElementById('cal-grid');
         const calTitle = document.getElementById('cal-month-title');
         const resultOverlay = document.getElementById('result-overlay');
+        const fontSelector = document.getElementById('font-selector');
         
-        // Init
         checkTuesday();
         loadData();
+        loadFont(); // 載入字型設定
         
-        // Clock Loop
         setInterval(() => {
             const now = new Date();
             clockEl.textContent = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute:'2-digit' });
         }, 1000);
 
+        // 字型切換邏輯
+        fontSelector.addEventListener('change', (e) => {
+            const newFont = e.target.value;
+            document.documentElement.style.setProperty('--font-hand', newFont);
+            localStorage.setItem('hunter_font', newFont);
+        });
+
+        function loadFont() {
+            const savedFont = localStorage.getItem('hunter_font');
+            if (savedFont) {
+                document.documentElement.style.setProperty('--font-hand', savedFont);
+                fontSelector.value = savedFont;
+            }
+        }
+
         function toggleCheck(el) {
             el.classList.toggle('checked');
         }
 
-        // 週二自動加泳衣
         function checkTuesday() {
             const now = new Date();
-            if (now.getDay() === 2) { // 2 is Tuesday
+            if (now.getDay() === 2) { 
                 const li = document.createElement('li');
                 li.className = 'task-item special';
                 li.setAttribute('onclick', 'toggleCheck(this)');
                 li.innerHTML = `<div class="checkbox"></div><span>Swimsuit 🩱 (Tue)</span>`;
-                // Insert before medicine (2nd to last)
                 const items = taskList.children;
                 taskList.insertBefore(li, items[items.length - 2]);
             }
         }
 
-        // 完成邏輯
         function finishRoutine() {
             const now = new Date();
             const target645 = new Date(); target645.setHours(6, 45, 0);
@@ -371,7 +386,6 @@
                 stars = 0; rank = "C"; title = "Try Again!"; rankClass = "rank-c";
             }
 
-            // Show Result
             document.getElementById('result-rank').textContent = rank;
             document.getElementById('result-rank').className = "rank-badge " + rankClass;
             document.getElementById('result-title').textContent = title;
@@ -384,34 +398,29 @@
             saveDailyData(stars);
         }
 
-        // 資料儲存 (Local Storage)
         function saveDailyData(stars) {
             const today = new Date();
             const dateKey = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-            
             let data = JSON.parse(localStorage.getItem('hunter_data') || "{}");
-            
-            // 記錄今天
             data[dateKey] = { stars: stars };
-            
             localStorage.setItem('hunter_data', JSON.stringify(data));
-            loadData(); // Refresh UI
+            loadData();
         }
 
         function loadData() {
             const data = JSON.parse(localStorage.getItem('hunter_data') || "{}");
             const now = new Date();
             
-            // 1. 計算總星星 (Total)
+            // Total Stars
             let total = 0;
             Object.values(data).forEach(day => total += (day.stars || 0));
             totalStarsEl.textContent = total;
 
-            // 2. 計算本週星星 (Weekly)
+            // Weekly Stats
             let weeklyTotal = 0;
-            const dayOfWeek = now.getDay(); // 0(Sun) - 6(Sat)
+            const dayOfWeek = now.getDay(); 
             const sunday = new Date(now);
-            sunday.setDate(now.getDate() - dayOfWeek); // Go back to Sunday
+            sunday.setDate(now.getDate() - dayOfWeek); 
             
             for (let i = 0; i < 7; i++) {
                 let d = new Date(sunday);
@@ -421,7 +430,6 @@
             }
             weeklyScoreEl.textContent = weeklyTotal + " ⭐";
 
-            // 3. 繪製月曆
             renderCalendar(data);
         }
 
@@ -429,36 +437,31 @@
             const now = new Date();
             const year = now.getFullYear();
             const month = now.getMonth();
-            
             document.getElementById('cal-month-title').textContent = `${now.toLocaleString('default', { month: 'long' })} ${year}`;
             
             const daysInMonth = new Date(year, month + 1, 0).getDate();
-            const firstDayIndex = new Date(year, month, 1).getDay(); // 0 is Sunday
+            const firstDayIndex = new Date(year, month, 1).getDay(); 
             
             let html = '';
-            // Empty slots
             for(let i=0; i<firstDayIndex; i++) html += `<div></div>`;
             
-            // Days
             for(let d=1; d<=daysInMonth; d++) {
                 const k = `${year}-${month + 1}-${d}`;
                 const record = data[k];
                 const isToday = (d === now.getDate());
-                
                 let cls = 'cal-day';
                 let content = d;
                 
                 if (isToday) cls += ' today';
                 if (record) {
                     if (record.stars >= 20) {
-                        cls += ' perfect'; // S Rank
+                        cls += ' perfect'; 
                         content = `${d}<div class="cal-star-num">👑${record.stars}</div>`;
                     } else {
                         cls += ' done';
                         content = `${d}<div class="cal-star-num">⭐${record.stars}</div>`;
                     }
                 }
-                
                 html += `<div class="${cls}">${content}</div>`;
             }
             calGrid.innerHTML = html;
@@ -471,7 +474,6 @@
             }
         }
 
-        // 紙花特效
         function startConfetti() {
             const canvas = document.getElementById('confetti-canvas');
             canvas.style.display = 'block';
